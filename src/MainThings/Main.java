@@ -65,7 +65,7 @@ public class Main {
                                             String alimentareString = iban + "," + alimentareCont.getSuma_depusa();
                                             singletonScriereInFisiere.adaugare_in_fisier(numarAlimentari,alimentareString,"AlimentariCont.csv");
                                             actionNumber++;
-                                            actiune = "Alimentare cont " + LocalDateTime.now();
+                                            actiune = "Alimentare cont"+ "," + LocalDateTime.now();
                                             singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                             break;
                                         case 2:
@@ -77,7 +77,7 @@ public class Main {
                                             String retragereString = iban + "," + retragere.getSuma_retrasa();
                                             singletonScriereInFisiere.adaugare_in_fisier(numarRetrageri,retragereString,"Retrageri.csv");
                                             actionNumber++;
-                                            actiune = "Retragere " + LocalDateTime.now();
+                                            actiune = "Retragere"+ "," + LocalDateTime.now();
                                             singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                             break;
                                         case 3:
@@ -97,7 +97,7 @@ public class Main {
                                                     String transferString = iban + "," + transferulFacut.getSuma_transferata() + ","+ iban_destinatar;
                                                     singletonScriereInFisiere.adaugare_in_fisier(numarTransferuri,transferString,"Transferuri.csv");
                                                     actionNumber++;
-                                                    actiune = "Transfer " + LocalDateTime.now();
+                                                    actiune = "Transfer"+ "," + LocalDateTime.now();
                                                     singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                                 }
                                             }
@@ -114,19 +114,19 @@ public class Main {
                                             String plataFacturaString = iban + ","+plataFactura.getNumar_factura()+","+plataFactura.getSuma()+","+plataFactura.getCIF()+","+plataFactura.getNume_firma();
                                             singletonScriereInFisiere.adaugare_in_fisier(numarPlatiFacturi,plataFacturaString,"PlatiFacturi.csv");
                                             actionNumber++;
-                                            actiune = "Plata Factura " + LocalDateTime.now();
+                                            actiune = "Plata Factura"+ "," + LocalDateTime.now();
                                             singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                             break;
                                         case 5:
                                             serviciiClient.afisareExtrasCont(conturi_deschise.get(i));
                                             actionNumber++;
-                                            actiune = "Afisare Extras De Cont " + LocalDateTime.now();
+                                            actiune = "Afisare Extras De Cont"+ "," + LocalDateTime.now();
                                             singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                             break;
                                         case 6:
                                             serviciiClient.afisareSold(conturi_deschise.get(i));
                                             actionNumber++;
-                                            actiune = "Afisare Sold " + LocalDateTime.now();
+                                            actiune = "Afisare Sold"+ "," + LocalDateTime.now();
                                             singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                             break;
                                         case 0:
@@ -162,7 +162,7 @@ public class Main {
                             case 1:
                                 conturi_deschise.add(serviciiAdmin.creareCont(keyboard,keyboardString,conturi_deschise.size()));
                                 actionNumber++;
-                                actiune = "Creare Cont Bancar " + LocalDateTime.now();
+                                actiune = "Creare Cont Bancar"+ "," + LocalDateTime.now();
                                 singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                 break;
                             case 2:
@@ -174,7 +174,7 @@ public class Main {
                                         OK = true;
                                         conturi_deschise.remove(conturi_deschise.get(i));
                                         actionNumber++;
-                                        actiune = "Stergere Cont Bancar " + LocalDateTime.now();
+                                        actiune = "Stergere Cont Bancar"+ "," + LocalDateTime.now();
                                         singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                         break;
                                     }
@@ -191,7 +191,7 @@ public class Main {
                                         OK = true;
                                         conturi_deschise.get(i).setCarduri(serviciiAdmin.blocheazaCard(keyboard,keyboardString, conturi_deschise.get(i)));
                                         actionNumber++;
-                                        actiune = "Blocare Card " + LocalDateTime.now();
+                                        actiune = "Blocare Card"+ "," + LocalDateTime.now();
                                         singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                     }
                                 }
@@ -211,7 +211,7 @@ public class Main {
                                         String depozitBancarString = iban+","+depozitBancar.getTermen()+","+depozitBancar.getDobanda();
                                         singletonScriereInFisiere.adaugare_in_fisier(numarDepozite,depozitBancarString,"DepoziteBancare.csv");
                                         actionNumber++;
-                                        actiune = "Creare Depozit Bancar " + LocalDateTime.now();
+                                        actiune = "Creare Depozit Bancar"+ "," + LocalDateTime.now();
                                         singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                     }
                                 }
@@ -227,7 +227,7 @@ public class Main {
                                         OK = true;
                                         conturi_deschise.get(i).setCarduri(serviciiAdmin.creareCard(keyboard,keyboardString, conturi_deschise.get(i)));
                                         actionNumber++;
-                                        actiune = "Creare Card Bancar " + LocalDateTime.now();
+                                        actiune = "Creare Card Bancar"+ "," + LocalDateTime.now();
                                         singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                     }
                                 }
@@ -247,7 +247,7 @@ public class Main {
                                         String creditString = iban+","+credit.getSuma()+","+credit.getDurata()+","+credit.getDobanda()+","+credit.getValoare_achitata();
                                         singletonScriereInFisiere.adaugare_in_fisier(numarCredite,creditString,"DepoziteBancare.csv");
                                         actionNumber++;
-                                        actiune = "Creare Credit " + LocalDateTime.now();
+                                        actiune = "Creare Credit"+ "," + LocalDateTime.now();
                                         singletonScriereInFisiere.adaugare_in_fisier(actionNumber,actiune,"Actiuni.csv");
                                     }
                                 }
@@ -264,6 +264,7 @@ public class Main {
                     }
                     break;
                 case 0:
+                    ///updatez conturile in fisier la final ca sa le folosesc dupa cu datele updated
                     for(int i=0;i<conturi_deschise.size();i++){
                         ContBancar contBancar = conturi_deschise.get(i);
                         String contBancarString = contBancar.getNume()+","+contBancar.getPrenume()+","+contBancar.getSold()+","+contBancar.getIBAN();
