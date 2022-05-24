@@ -4,6 +4,7 @@ import MainThings.Card;
 import MainThings.ContBancar;
 import Tranzactii.Credit;
 import Tranzactii.DepozitBancar;
+import javafx.util.Pair;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -49,15 +50,13 @@ public class ServiciiAdmin {
         return depozite;
     }
     //5.Creare inca un card pentru un cont
-    public SortedSet<Card> creareCard(Scanner scanner,Scanner scannerString, ContBancar cont){
+    public Pair<SortedSet<Card>,Card> creareCard(Scanner scanner, Scanner scannerString, ContBancar cont, int numar_card){
         SortedSet<Card> carduri = cont.getCarduri();
-        System.out.println("Introdu numarul de card");
-        int numar_card = scanner.nextInt();
         System.out.println("Introdu numele titularului");
         String nume_titular = scannerString.nextLine();
         Card card_nou = new Card(numar_card,nume_titular,LocalDate.now().plusYears(5),false);
         carduri.add(card_nou);
-        return carduri;
+        return new Pair<>(carduri,card_nou);
     }
     //6.Acordare credit
     public List<Credit> acordareCredit(Scanner scanner, Scanner scannerString, ContBancar cont){

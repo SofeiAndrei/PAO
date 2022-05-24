@@ -50,4 +50,5 @@ public class Card {
     public void setBlocat(boolean blocat) {
         this.blocat = blocat;
     }
+
 }

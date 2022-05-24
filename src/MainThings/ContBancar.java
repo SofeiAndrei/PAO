@@ -145,4 +145,15 @@ public class ContBancar {
     public void setDepozite(List<DepozitBancar> depozite) {
         this.depozite = depozite;
     }
+
+    @Override
+    public String toString() {
+        return "ContBancar{" +
+                "id_client=" + id_client +
+                ", nume='" + nume + '\'' +
+                ", prenume='" + prenume + '\'' +
+                ", sold=" + sold +
+                ", IBAN='" + IBAN + '\'' +
+                '}';
+    }
 }
